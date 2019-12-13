@@ -1,6 +1,6 @@
-DROP TABLE transactions IF EXISTS;
-DROP TABLE merchants IF EXISTS;
-DROP TABLE tags IF EXISTS;
+DROP TABLE transactions;
+DROP TABLE merchants;
+DROP TABLE tags;
 
 CREATE TABLE tags (
   id SERIAL PRIMARY KEY,
