@@ -2,6 +2,7 @@ require('pry')
 require_relative('../models/tag')
 
 Tag.delete_all()
+Merchant.delete_all()
 
 tag1 = Tag.new({
   "type" => "Groceries",
