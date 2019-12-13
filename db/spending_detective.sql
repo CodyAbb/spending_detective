@@ -4,7 +4,8 @@ DROP TABLE tags;
 
 CREATE TABLE tags (
   id SERIAL PRIMARY KEY,
-  type VARCHAR (255)
+  type VARCHAR (255),
+  description VARCHAR(255)
 );
 
 CREATE TABLE merchants(

@@ -13,11 +13,11 @@ class Tag
   def save()
     sql = "INSERT INTO tags
     (
-      type
+      type, description
     ) VALUES (
-      $1
+      $1, $2
     ) RETURNING id"
-    values = [@type]
+    values = [@type, @description]
     result = SqlRunner.run(sql, values)
     @id = result.first()['id'].to_i
   end
