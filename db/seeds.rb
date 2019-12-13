@@ -1,9 +1,13 @@
 require('pry')
 require_relative('../models/tag')
+require_relative('../models/merchant')
+
 
 Tag.delete_all()
 Merchant.delete_all()
 
+
+#Seed data for spending tags
 tag1 = Tag.new({
   "type" => "Groceries",
   "description" => ""
@@ -39,6 +43,37 @@ tag6 = Tag.new({
   "description" => "Had a kebab after a night out, bad!"
   })
 tag6.save()
+
+#seed data for merchant tags
+merchant1 = Merchant.new({
+  "name" => "Tesco",
+  "active" => true
+  })
+merchant1.save()
+
+merchant2 = Merchant.new({
+  "name" => "Chilli Grill",
+  "active" => false
+  })
+merchant2.save()
+
+merchant3 = Merchant.new({
+  "name" => "Cineworld",
+  "active" => true
+  })
+merchant3.save()
+
+merchant4 = Merchant.new({
+  "name" => "Netflix",
+  "active" => true
+  })
+merchant4.save()
+
+merchant5 = Merchant.new({
+  "name" => "SSE",
+  "active" => true
+  })
+merchant5.save()
 
 binding.pry
 nil
