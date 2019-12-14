@@ -5,10 +5,10 @@ also_reload( '../models/*' )
 
 get ('/tags/?') do
   @tags = Tag.all()
-  erb('../views/tags/index.erb')
+  erb(:"tags/index")
 end
 
 get ('/tags/:id') do
   @tag = Tag.find(params['id'].to_i)
-  erb('../views/tags/show.erb')
+  erb(:"tags/show")
 end
