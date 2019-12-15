@@ -1,7 +1,14 @@
-<div class="container">
-  <ul>
-    <% for tag in @tags %>
-    <li><%= tag.type %></li>
-    <%end%>
-  </ul>
-</div>
+<table>
+  <tr>
+    <th>Type of Purchase</th>
+    <th></th>
+    <th>Description of Purchase</th>
+  </tr>
+  <% for tag in @tags %>
+  <tr>
+    <td><a href="/tags/<%=tag.id%>"><%= tag.type %></a></td>
+    <td>|</td>
+    <td><%= tag.description %></td>
+  </tr>
+  <%end%>
+</table>
