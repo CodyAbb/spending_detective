@@ -22,6 +22,14 @@ class Merchant
     @id = result.first()['id'].to_i
   end
 
+  def availability()
+    if @active == true
+      return "Available"
+    else
+      return "Currently Unavailable"
+    end  
+  end
+
   def self.all()
     sql = "SELECT * FROM merchants"
     result = SqlRunner.run(sql)

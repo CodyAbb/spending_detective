@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Availability</th>
+  </tr>
+  <% for merchant in @merchants %>
+  <tr>
+    <td><a href="/tags/<%=merchant.id%>"><%= merchant.name %></a></td>
+    <td>|</td>
+    <td><%= merchant.availability %></td>
+  </tr>
+  <%end%>
+</table>
