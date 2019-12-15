@@ -18,6 +18,7 @@ CREATE TABLE transactions(
   id SERIAL PRIMARY KEY,
   transaction_date INT,
   month VARCHAR(255),
+  amount DECIMAL,
   tag_id INT REFERENCES tags(id),
   merchant_id INT REFERENCES merchants(id)
 );
