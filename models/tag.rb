@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./merchant')
 class Tag
 
   attr_reader :id
@@ -29,7 +30,7 @@ class Tag
           WHERE tag_id = $1;"
     values = [@id]
     results = SqlRunner.run(sql, values)
-    return results.map { |tag| Tag.new(tag) }
+    return results.map { |merchant| Merchant.new(merchant) }
   end
 
   def self.all()
