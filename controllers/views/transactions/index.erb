@@ -5,6 +5,14 @@
     <tr>
       <th>Date</th>
       <th>Month</th>
+      <th>Amount</th>
     </tr>
+    <% for transaction in @transactions %>
+    <tr>
+      <td><%= transaction.transaction_date %></td>
+      <td><%= transaction.month %></td>
+      <td>£<%= sprintf('%.2f', transaction.amount) %></td>
+    </tr>
+    <% end %>
   </table>
 </div>
