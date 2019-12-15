@@ -22,6 +22,16 @@ class Tag
     @id = result.first()['id'].to_i
   end
 
+  def merchants()
+    sql = "SELECT merchants.* FROM merchants
+          INNER JOIN transactions
+          ON transactions.merchant_id = merchants.id
+          WHERE tag_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |tag| Tag.new(tag) }
+  end
+
   def self.all()
     sql = "SELECT * FROM tags"
     result = SqlRunner.run(sql)
@@ -31,8 +41,8 @@ class Tag
   def self.find(id)
     sql = "SELECT * FROM tags WHERE id = $1"
     values = [id]
-    result = SqlRunner.run(sql, values)
-    return result.map { |tag| Tag.new(tag)  }
+    results = SqlRunner.run(sql, values)
+    return Tag.new( results.first )
   end
 
   def self.delete_all()

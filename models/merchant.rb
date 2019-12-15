@@ -27,7 +27,7 @@ class Merchant
       return "Available"
     else
       return "Currently Unavailable"
-    end  
+    end
   end
 
   def self.all()
@@ -39,8 +39,8 @@ class Merchant
   def self.find(id)
     sql = "SELECT * FROM merchants WHERE id = $1"
     values = [id]
-    result = SqlRunner.run(sql, values)
-    return result.map { |merchant| Merchant.new(merchant)  }
+    results = SqlRunner.run(sql, values)
+    return Merchant.new( results.first )
   end
 
   def self.delete_all()

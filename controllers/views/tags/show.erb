@@ -1,0 +1,13 @@
+<div class="container">
+  <h2><%= @tag.type %></h2>
+  <p><%= @tag.description%></p>
+  <br>
+  <p>Shops where you make similar purchases:</p>
+  <ul>
+    <% for merchant in @tag.merchants %>
+    <li><%= merchant.name %></li>
+    <%end%>
+  </ul>
+  <br>
+  <p><a href="/tags"><<Back to Results</a></p>
+</div>
