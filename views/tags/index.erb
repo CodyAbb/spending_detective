@@ -8,22 +8,8 @@
   <% for tag in @tags %>
   <li>
     <%= tag.type %>
-    <a href="#"></a>
+    <a href="/tags/<%=tag.id%>/delete">Delete</a>
+    <a href="/tags/<%=tag.id%>/edit">Edit</a>
   </li>
   <% end %>
 </ul>
-
-<table>
-  <tr>
-    <th>Type of Purchase</th>
-    <th></th>
-    <th>Description of Purchase</th>
-  </tr>
-  <% for tag in @tags %>
-  <tr>
-    <td><a href="/tags/<%=tag.id%>"></a></td>
-    <td>|</td>
-
-  </tr>
-  <%end%>
-</table>

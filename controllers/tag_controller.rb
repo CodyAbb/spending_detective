@@ -17,25 +17,24 @@ end
 post ('/tags') do
   @tag = Tag.new(params)
   @tag.save
-  erb(:create)
+  redirect to '/tags'
 end
 
 # edit
 get '/tags/:id/edit' do
-  @houses = House.all()
   @tag = Tag.find(params[:id])
-  erb(:edit)
+  erb(:"tags/edit")
 end
 
 # update
 post '/tags/:id' do
-  student = Tag.new(params).update()
+  tag = Tag.new(params).update()
   redirect to '/tags'
 end
 
 # destroy
-post '/tags/:id/delete' do
+get '/tags/:id/delete' do
   tag = Tag.find(params[:id])
   tag.delete()
-  redirect to '/Tags'
+  redirect to '/tags'
 end
