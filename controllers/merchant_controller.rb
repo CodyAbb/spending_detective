@@ -11,3 +11,29 @@ end
 get ('/merchants/:id') do
   @merchant = Merchant.find(params['id'].to_i)
 end
+
+# create
+post ('/merchants') do
+  @merchant = Merchant.new(params)
+  @merchant.save
+  redirect to '/merchants'
+end
+
+# edit
+get '/merchants/:id/edit' do
+  @merchant = Merchant.find(params[:id])
+  erb(:"merchants/edit")
+end
+
+# update
+post '/merchants/:id' do
+  merchant = Merchant.new(params).update()
+  redirect to '/merchants'
+end
+
+# destroy
+get '/merchants/:id/delete' do
+  merchant = Merchant.find(params[:id])
+  merchant.delete()
+  redirect to '/merchants'
+end

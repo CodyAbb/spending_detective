@@ -1,3 +1,15 @@
+<form action="/merchants" method="POST">
+  <label for="merchant-name">Merchant Name:</label>
+  <input type="text" name="name" id="merchant-name" placeholder="Enter Here">
+
+  <label for="merchant-availability">Currently Available: </label>
+  <select name="availability" id="merchant-availability">
+    <option value="true">Available</option>
+    <option value="false">Currently Unavailable</option>
+  </select>
+  <input type="submit" value="Add Tag">
+</form>
+
 <table>
   <tr>
     <th>Name</th>
@@ -6,9 +18,11 @@
   </tr>
   <% for merchant in @merchants %>
   <tr>
-    <td><a href="/tags/<%=merchant.id%>"><%= merchant.name %></a></td>
+    <td><%= merchant.name %></td>
     <td>|</td>
     <td><%= merchant.availability %></td>
+    <td><a href="/merchants/<%=merchant.id%>/delete">Delete</a></td>
+    <td><a href="/merchants/<%=merchant.id%>/edit">Edit</a></td>
   </tr>
   <%end%>
 </table>
