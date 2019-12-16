@@ -3,7 +3,7 @@
   <input type="text" name="name" id="merchant-name" placeholder="Enter Here">
 
   <label for="merchant-availability">Currently Available: </label>
-  <select name="availability" id="merchant-availability">
+  <select name="active" id="merchant-availability">
     <option value="true">Available</option>
     <option value="false">Currently Unavailable</option>
   </select>
@@ -21,7 +21,6 @@
     <td><%= merchant.name %></td>
     <td>|</td>
     <td><%= merchant.availability %></td>
-    <td><a href="/merchants/<%=merchant.id%>/delete">Delete</a></td>
     <td><a href="/merchants/<%=merchant.id%>/edit">Edit</a></td>
   </tr>
   <%end%>
