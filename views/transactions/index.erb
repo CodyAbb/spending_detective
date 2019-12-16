@@ -20,8 +20,12 @@
       <td><%= transaction.merchant.name %></td>
       <td><%= transaction.tag.type%></td>
       <td><%= transaction.description%></td>
-      <td><a href="/transactions/<%=transaction.id%>/Delete">Delete</a></td>
-      <td><a href="/transactions/<%=transaction.id%>/Edit">Edit</a></td>
+      <td><a href="/transactions/<%=transaction.id%>/edit">Edit</a></td>
+      <td>
+        <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+          <input type="submit" value="Delete">
+        </form>
+      </td>
     </tr>
     <% end %>
   </table>
