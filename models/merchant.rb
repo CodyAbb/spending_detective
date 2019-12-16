@@ -45,7 +45,19 @@ class Merchant
   def self.all()
     sql = "SELECT * FROM merchants"
     result = SqlRunner.run(sql)
-    return result.map { |merchant| Merchant.new(merchant) }
+    return string_array = result.map { |merchant| Merchant.new(merchant) }
+
+  end
+
+
+  def self.update_active(array)
+    for item in array
+      if(item.active == 't')
+        item.active = true
+      else
+        item.active = false
+      end
+    end
   end
 
   def self.find(id)
