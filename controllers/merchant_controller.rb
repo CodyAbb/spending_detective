@@ -4,7 +4,8 @@ require_relative( '../models/merchant.rb' )
 also_reload( '../models/*' )
 
 get ('/merchants/?') do
-  @merchants = Merchant.all
+  merchant_array = Merchant.all()
+  @merchants = Merchant.update_active(merchant_array)
   erb(:'merchants/index')
 end
 

@@ -46,9 +46,7 @@ class Merchant
     sql = "SELECT * FROM merchants"
     result = SqlRunner.run(sql)
     return string_array = result.map { |merchant| Merchant.new(merchant) }
-
   end
-
 
   def self.update_active(array)
     for item in array
