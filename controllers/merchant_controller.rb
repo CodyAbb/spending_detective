@@ -27,6 +27,7 @@ end
 
 # update
 post '/merchants/:id' do
-  merchant = Merchant.new(params).update()
+  merchant = Merchant.new(params)
+  merchant.update()
   redirect to '/merchants'
 end

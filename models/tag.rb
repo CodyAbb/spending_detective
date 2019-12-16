@@ -22,6 +22,13 @@ class Tag
     @id = result.first()['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE tags
+    SET type = $1 WHERE id = $2"
+    values = [@type, @id]
+    SqlRunner.run( sql, values )
+  end
+
   def merchants()
     sql = "SELECT merchants.* FROM merchants
           INNER JOIN transactions

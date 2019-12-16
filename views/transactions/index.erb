@@ -6,12 +6,16 @@
       <th>Date</th>
       <th>Month</th>
       <th>Amount</th>
+      <th>Description</th>
     </tr>
     <% for transaction in @transactions %>
     <tr>
       <td><%= transaction.transaction_date %></td>
       <td><%= transaction.month %></td>
       <td>£<%= sprintf('%.2f', transaction.amount) %></td>
+      <td><%= transaction.description%></td>
+      <td><a href="/transactions/<%=transaction.id%>/Delete">Delete</a></td>
+      <td><a href="/transactions/<%=transaction.id%>/Edit">Edit</a></td>
     </tr>
     <% end %>
   </table>

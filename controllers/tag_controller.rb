@@ -28,13 +28,7 @@ end
 
 # update
 post '/tags/:id' do
-  tag = Tag.new(params).update()
-  redirect to '/tags'
-end
-
-# destroy
-get '/tags/:id/delete' do
-  tag = Tag.find(params[:id])
-  tag.delete()
+  tag = Tag.new(params)
+  tag.update()
   redirect to '/tags'
 end
