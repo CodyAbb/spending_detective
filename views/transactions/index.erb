@@ -2,12 +2,14 @@
   <p><a href="transactions/new">Add a New Transaction</a></p>
   <br>
   <p>Total Transaction Value: £<%= sprintf('%.2f', @total_transaction_value) %></p>
-  br
+  <br>
   <table>
     <tr>
       <th>Date</th>
       <th>Month</th>
       <th>Amount</th>
+      <th>Merchant</th>
+      <th>Spending Tag</th>
       <th>Description</th>
     </tr>
     <% for transaction in @transactions %>
@@ -15,6 +17,8 @@
       <td><%= transaction.transaction_date %></td>
       <td><%= transaction.month %></td>
       <td>£<%= sprintf('%.2f', transaction.amount) %></td>
+      <td><%= transaction.merchant.name %></td>
+      <td><%= transaction.tag.type%></td>
       <td><%= transaction.description%></td>
       <td><a href="/transactions/<%=transaction.id%>/Delete">Delete</a></td>
       <td><a href="/transactions/<%=transaction.id%>/Edit">Edit</a></td>
