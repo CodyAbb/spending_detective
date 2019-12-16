@@ -43,9 +43,9 @@ class Merchant
   def self.update_active(array)
     for item in array
       if(item.active == 't')
-        item.active = true
+        item.active = "Available"
       else
-        item.active = false
+        item.active = "Currently Unavailable"
       end
     end
   end
