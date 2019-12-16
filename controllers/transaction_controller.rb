@@ -28,7 +28,10 @@ end
 
 # edit
 get ('/transactions/:id/edit') do
-  @transaction = Transaction.find(params[:id])
+  @transaction = Transaction.find(params['id'].to_i)
+  @tags = Tag.all
+  merchant_array = Merchant.all
+  @merchants = Merchant.availability_check(merchant_array)
   erb(:"transactions/edit")
 end
 
