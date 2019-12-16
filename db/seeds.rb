@@ -11,38 +11,32 @@ Merchant.delete_all()
 
 #Seed data for spending tags
 tag1 = Tag.new({
-  "type" => "Groceries",
-  "description" => ""
+  "type" => "Groceries"
   })
 tag1.save()
 
 tag2 = Tag.new({
-  "type" => "Entertainment",
-  "description" => "Cinema with Jane"
+  "type" => "Entertainment"
   })
 tag2.save()
 
 tag3 = Tag.new({
-  "type" => "Eating Out",
-  "description" => "Fancy meal with Tinder date"
+  "type" => "Eating Out"
   })
 tag3.save()
 
 tag4 = Tag.new({
-  "type" => "Bills",
-  "description" => "Electricity payment"
+  "type" => "Bills"
   })
 tag4.save()
 
 tag5 = Tag.new({
-  "type" => "Membership",
-  "description" => ""
+  "type" => "Membership"
   })
 tag5.save()
 
 tag6 = Tag.new({
-  "type" => "Eating Out",
-  "description" => "Had a kebab after a night out, bad!"
+  "type" => "Eating Out"
   })
 tag6.save()
 
@@ -83,6 +77,7 @@ transaction1 = Transaction.new({
   "transaction_date" => 17,
   "month" => "November",
   "amount" => 7.48,
+  "description" => "",
   "tag_id" => tag1.id,
   "merchant_id" => merchant1.id
   })
@@ -92,6 +87,7 @@ transaction2 = Transaction.new({
   "transaction_date" => 22,
   "month" => "November",
   "amount" => 10.50,
+  "description" => "Cinema with Jane",
   "tag_id" => tag2.id,
   "merchant_id" => merchant3.id
   })
@@ -101,6 +97,7 @@ transaction3 = Transaction.new({
   "transaction_date" => 25,
   "month" => "November",
   "amount" => 23.99,
+  "description" => "Fancy meal with Tinder date",
   "tag_id" => tag4.id,
   "merchant_id" => merchant5.id
   })
@@ -110,6 +107,7 @@ transaction4 = Transaction.new({
   "transaction_date" => 2,
   "month" => "December",
   "amount" => 6.99,
+  "description" => "Electricity payment",
   "tag_id" => tag3.id,
   "merchant_id" => merchant2.id
   })
@@ -119,6 +117,7 @@ transaction5 = Transaction.new({
   "transaction_date" => 2,
   "month" => "December",
   "amount" => 7.00,
+  "description" => "",
   "tag_id" => tag5.id,
   "merchant_id" => merchant4.id
   })

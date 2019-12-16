@@ -2,12 +2,13 @@ require_relative('../db/sql_runner')
 class Transaction
 
   attr_reader :id
-  attr_accessor :transaction_date, :month, :amount, :tag_id, :merchant_id
+  attr_accessor :transaction_date, :month, :amount, :description, :tag_id, :merchant_id
 
   def initialize(options)
     @transaction_date = options['transaction_date'].to_i
     @month = options['month']
     @amount = options['amount'].to_f
+    @description = options['description']
     @tag_id = options['tag_id'].to_i
     @merchant_id = options['merchant_id'].to_i
     @id = options['id'].to_i if options['id']
@@ -16,11 +17,11 @@ class Transaction
   def save()
     sql = "INSERT INTO transactions
     (
-      transaction_date, month, amount, tag_id, merchant_id
+      transaction_date, month, amount, description, tag_id, merchant_id
     ) VALUES (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6
     ) RETURNING id"
-    values = [@transaction_date, @month, @amount, @tag_id, @merchant_id]
+    values = [@transaction_date, @month, @amount, @description, @tag_id, @merchant_id]
     result = SqlRunner.run(sql, values)
     @id = result.first()['id'].to_i
   end

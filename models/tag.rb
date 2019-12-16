@@ -3,22 +3,21 @@ require_relative('./merchant')
 class Tag
 
   attr_reader :id
-  attr_accessor :type, :description
+  attr_accessor :type
 
   def initialize(options)
     @type = options['type']
-    @description = options['description']
     @id = options['id'].to_i if options['id']
   end
 
   def save()
     sql = "INSERT INTO tags
     (
-      type, description
+      type
     ) VALUES (
-      $1, $2
+      $1
     ) RETURNING id"
-    values = [@type, @description]
+    values = [@type]
     result = SqlRunner.run(sql, values)
     @id = result.first()['id'].to_i
   end

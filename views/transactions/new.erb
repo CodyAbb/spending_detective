@@ -53,7 +53,7 @@
   </select>
 
   <label for="transaction-amount">Amount:</label>
-  <input type="text" name="amount" id="transaction-amount" value="Format xx.xx">
+  <input type="text" name="amount" id="transaction-amount" placeholder="Example 5.99">
 
   <label for="merchant-select">Select Merchant:</label>
   <select name="merchant_id" id="merchant-select">
@@ -68,6 +68,9 @@
     <option value="<%= tag.id%>"> <%= tag.type %> </option>
     <% end %>
   </select>
+
+  <label for="description-text">Description:</label>
+  <input type="text" name="description" id="description-text" placeholder="Simple Description">
 
   <input type="submit" value="Add Transaction">
 
