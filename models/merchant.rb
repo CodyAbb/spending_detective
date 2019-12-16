@@ -34,14 +34,6 @@ class Merchant
     SqlRunner.run(sql, values)
   end
 
-  def availability()
-    if @active == true
-      return "Available"
-    else
-      return "Currently Unavailable"
-    end
-  end
-
   def self.all()
     sql = "SELECT * FROM merchants"
     result = SqlRunner.run(sql)
@@ -56,6 +48,16 @@ class Merchant
         item.active = false
       end
     end
+  end
+
+  def self.availability_check(array)
+    available_array =[]
+    for item in array
+      if item.active == 't'
+        available_array << item
+      end
+    end
+    return available_array
   end
 
   def self.find(id)

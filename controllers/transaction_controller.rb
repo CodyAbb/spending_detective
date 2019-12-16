@@ -15,7 +15,8 @@ end
 
 get ('/transactions/new') do
   @tags = Tag.all
-  @merchants = Merchant.all
+  merchant_array = Merchant.all
+  @merchants = Merchant.availability_check(merchant_array)
   erb(:'transactions/new')
 end
 
