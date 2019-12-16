@@ -64,4 +64,14 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def self.total_transactions()
+    sql = "SELECT amount FROM transactions"
+    result = SqlRunner.run(sql)
+    result
+    result_array = result.map { |result| result}
+    values = result_array.map{|h| h['amount'].to_f}.compact
+    return values.reduce(0){|sum, n| sum + n}
+  end
+
+
 end

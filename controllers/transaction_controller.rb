@@ -7,6 +7,9 @@ also_reload( '../models/*' )
 
 get ('/transactions/?') do
   @transactions = Transaction.all()
+  @total_transaction_value = Transaction.total_transactions()
+  merchant_array = Merchant.all()
+  @merchants = Merchant.update_active(merchant_array)
   erb(:'transactions/index')
 end
 
@@ -20,6 +23,19 @@ post ('/transactions') do
   transaction = Transaction.new(params)
   transaction.save
   redirect to ('/transactions')
+end
+
+# edit
+get ('/transactions/:id/edit') do
+  @transaction = Transaction.find(params[:id])
+  erb(:"transactions/edit")
+end
+
+# update
+post ('/transactions/:id') do
+  transaction = Transaction.new(params)
+  transaction.update()
+  redirect to '/transactions'
 end
 
 post ('/transactions/:id/delete') do

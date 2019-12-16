@@ -1,6 +1,8 @@
 <div class="container">
   <p><a href="transactions/new">Add a New Transaction</a></p>
   <br>
+  <p>Total Transaction Value: £<%= sprintf('%.2f', @total_transaction_value) %></p>
+  br
   <table>
     <tr>
       <th>Date</th>
