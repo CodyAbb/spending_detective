@@ -72,6 +72,22 @@ post ('/transactions/merchants/?') do
   erb(:"transactions/show_merchant")
 end
 
+get ('/transactions/tags/?') do
+  @transactions = Transaction.all
+  @tags = Tag.all
+  initial_tag = Tag.all.first.id
+  @tag_transactions = Transaction.tag_transactions(initial_tag)
+  erb(:"transactions/show_tag")
+end
+
+post ('/transactions/tags/?') do
+  @transactions = Transaction.all
+  @tags = Tag.all
+  tag_term = params[:tag_term]
+  @tag_transactions = Transaction.tag_transactions(tag_term)
+  erb(:"transactions/show_tag")
+end
+
 post ('/transactions/:id/delete') do
   Transaction.delete(params[:id])
   redirect to ("/transactions")

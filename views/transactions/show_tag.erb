@@ -1,0 +1,38 @@
+<form class="" action="/transactions/tags/" method="post">
+  <label for="tag-select">Select Tag:</label>
+  <select name="tag_term" id="tag-select">
+    <%for tag in @tags %>
+      <option value="<%= tag.id%>"> <%= tag.type %> </option>
+    <% end %>
+    </select>
+  <input type="submit" value="View">
+</form>
+
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Amount</th>
+    <th>Merchant</th>
+    <th>Spending Tag</th>
+    <th>Description</th>
+  </tr>
+  <% for transaction in @tag_transactions %>
+  <tr>
+    <td><%= transaction.flip_date(transaction.transaction_date) %></td>
+    <td>£<%= sprintf('%.2f', transaction.amount) %></td>
+    <td><%= transaction.merchant.name %></td>
+    <td><%= transaction.tag.type%></td>
+    <td><%= transaction.description%></td>
+    <td><a href="/transactions/<%=transaction.id%>/edit">Edit</a></td>
+    <td>
+      <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+        <input type="submit" value="Delete">
+      </form>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<br>
+<a href="/transactions">< Back</a>
