@@ -6,7 +6,7 @@
     <th>Spending Tag</th>
     <th>Description</th>
   </tr>
-  <% for transaction in @test_transactions %>
+  <% for transaction in @month_transactions %>
   <tr>
     <td><%= transaction.flip_date(transaction.transaction_date) %></td>
     <td>£<%= sprintf('%.2f', transaction.amount) %></td>

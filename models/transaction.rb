@@ -131,4 +131,13 @@ class Transaction
     return result.map { |transaction| Transaction.new(transaction) }
   end
 
+  def self.select_month_transactions(month_index, year)
+    sql = "SELECT * FROM transactions
+          WHERE EXTRACT(MONTH FROM transaction_date) = $1
+          AND EXTRACT (YEAR FROM transaction_date) = $2;"
+    values = [month_index, year]
+    result = SqlRunner.run(sql, values)
+    return result.map { |transaction| Transaction.new(transaction) }
+  end
+
 end
