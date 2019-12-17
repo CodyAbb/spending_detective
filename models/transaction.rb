@@ -1,3 +1,5 @@
+require 'date'
+require 'time'
 require_relative('../db/sql_runner')
 class Transaction
 
@@ -38,7 +40,7 @@ class Transaction
 
   def self.all()
     sql = "SELECT id,
-          TO_CHAR(transaction_date, 'dd/mm/yyyy'),
+          transaction_date,
           amount,
           description,
           tag_id,
@@ -49,7 +51,7 @@ class Transaction
 
   def self.find(id)
     sql = "SELECT id,
-          TO_CHAR(transaction_date, 'dd/mm/yyyy'),
+          transaction_date,
           amount,
           description,
           tag_id,
@@ -91,6 +93,11 @@ class Transaction
     result_array = result.map { |result| result}
     values = result_array.map{|h| h['amount'].to_f}.compact
     return values.reduce(0){|sum, n| sum + n}
+  end
+
+  def flip_date(date)
+    d = Date.parse(date)
+    return d.strftime('%d/%m/%y').to_s
   end
 
 

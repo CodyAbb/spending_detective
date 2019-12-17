@@ -6,7 +6,6 @@
   <table>
     <tr>
       <th>Date</th>
-      <th>Month</th>
       <th>Amount</th>
       <th>Merchant</th>
       <th>Spending Tag</th>
@@ -14,8 +13,7 @@
     </tr>
     <% for transaction in @transactions %>
     <tr>
-      <td><%= transaction.transaction_date %></td>
-      <td><%= transaction.month %></td>
+      <td><%= transaction.flip_date(transaction.transaction_date) %></td>
       <td>£<%= sprintf('%.2f', transaction.amount) %></td>
       <td><%= transaction.merchant.name %></td>
       <td><%= transaction.tag.type%></td>
