@@ -42,6 +42,12 @@ post ('/transactions/:id') do
   redirect to '/transactions'
 end
 
+get ('/transactions/dates') do
+  @transactions = Transaction.all()
+  @month_transactions = Transaction.current_month_transactions
+  erb(:"transactions/show_date")
+end
+
 post ('/transactions/:id/delete') do
   Transaction.delete(params[:id])
   redirect to ("/transactions")

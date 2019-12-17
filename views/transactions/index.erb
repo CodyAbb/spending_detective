@@ -1,8 +1,16 @@
-<div class="container">
+
   <p><a href="transactions/new">Add a New Transaction</a></p>
   <br>
   <p>Total Transaction Value: £<%= sprintf('%.2f', @total_transaction_value) %></p>
   <br>
+
+  <div class="transaction-links">
+    <p>View by:</p>
+    <a href="/transactions/dates">Date</a>
+    <a href="/transactions/merchants">Merchant</a>
+    <a href="/transactions/tags"></a>
+  </div>
+
   <table>
     <tr>
       <th>Date</th>
@@ -27,4 +35,3 @@
     </tr>
     <% end %>
   </table>
-</div>

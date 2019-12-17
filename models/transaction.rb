@@ -109,11 +109,26 @@ class Transaction
     return d.to_s
   end
 
+  def year_parse(date)
+    d =  Date.parse(date).year
+    return d.to_s
+  end
+
   #parses sql string and returns date month as name
   def month_name_parse(date)
     d = Date.parse(date).month
     return Date::MONTHNAMES[d]
   end
 
+  def self.current_month_transactions()
+    @current_month = Date.today.mon
+    @current_year = Date.today.year
+    sql = "SELECT * FROM transactions
+          WHERE EXTRACT(MONTH FROM transaction_date) = $1
+          AND EXTRACT (YEAR FROM transaction_date) = $2;"
+    values = [@current_month, @current_year]
+    result = SqlRunner.run(sql, values)
+    return result.map { |transaction| Transaction.new(transaction) }
+  end
 
 end
