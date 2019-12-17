@@ -37,13 +37,23 @@ class Transaction
   end
 
   def self.all()
-    sql = "SELECT * FROM transactions"
+    sql = "SELECT id,
+          TO_CHAR(transaction_date, 'dd/mm/yyyy'),
+          amount,
+          description,
+          tag_id,
+          merchant_id From transactions"
     result = SqlRunner.run(sql)
     return result.map { |transaction| Transaction.new(transaction) }
   end
 
   def self.find(id)
-    sql = "SELECT * FROM transactions WHERE id = $1"
+    sql = "SELECT id,
+          TO_CHAR(transaction_date, 'dd/mm/yyyy'),
+          amount,
+          description,
+          tag_id,
+          merchant_id From transactions WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)
     return Transaction.new(result.first)
