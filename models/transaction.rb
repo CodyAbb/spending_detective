@@ -45,7 +45,8 @@ class Transaction
           amount,
           description,
           tag_id,
-          merchant_id From transactions"
+          merchant_id From transactions
+          ORDER BY transaction_date DESC;"
     result = SqlRunner.run(sql)
     return result.map { |transaction| Transaction.new(transaction) }
   end
