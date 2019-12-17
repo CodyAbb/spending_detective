@@ -42,7 +42,6 @@ post ('/transactions/:id') do
   redirect to '/transactions'
 end
 
-
 get ('/transactions/dates/?') do
   @transactions = Transaction.all
   @month_transactions = Transaction.current_month_transactions
@@ -55,6 +54,22 @@ post ('/transactions/dates/?') do
   year = params[:year]
   @month_transactions = Transaction.select_month_transactions(month_index, year)
   erb(:"transactions/show_date")
+end
+
+get ('/transactions/merchants/?') do
+  @transactions = Transaction.all
+  @merchants = Merchant.all
+  initial_merchant = Merchant.all.first.id
+  @merchant_transactions = Transaction.merchant_transactions(initial_merchant)
+  erb(:"transactions/show_merchant")
+end
+
+post ('/transactions/merchants/?') do
+  @transactions = Transaction.all
+  @merchants = Merchant.all
+  merchant_term = params[:merchant_term]
+  @merchant_transactions = Transaction.merchant_transactions(merchant_term)
+  erb(:"transactions/show_merchant")
 end
 
 post ('/transactions/:id/delete') do

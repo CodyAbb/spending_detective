@@ -2,6 +2,7 @@ require 'date'
 require 'time'
 
 require_relative('../db/sql_runner')
+require_relative('../models/merchant.rb')
 class Transaction
 
   attr_reader :id
@@ -136,6 +137,15 @@ class Transaction
           WHERE EXTRACT(MONTH FROM transaction_date) = $1
           AND EXTRACT (YEAR FROM transaction_date) = $2;"
     values = [month_index, year]
+    result = SqlRunner.run(sql, values)
+    return result.map { |transaction| Transaction.new(transaction) }
+  end
+
+  def self.merchant_transactions(merchant_search)
+    sql = "SELECT * FROM
+           transactions
+           WHERE merchant_id = $1"
+    values = [merchant_search]
     result = SqlRunner.run(sql, values)
     return result.map { |transaction| Transaction.new(transaction) }
   end
