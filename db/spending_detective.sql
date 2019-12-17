@@ -15,8 +15,7 @@ CREATE TABLE merchants(
 
 CREATE TABLE transactions(
   id SERIAL PRIMARY KEY,
-  transaction_date INT,
-  month VARCHAR(255),
+  transaction_date DATE,
   amount DECIMAL,
   description VARCHAR(255),
   tag_id INT REFERENCES tags(id),
