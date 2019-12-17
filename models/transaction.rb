@@ -102,9 +102,16 @@ class Transaction
     return d.strftime('%d/%m/%y').to_s
   end
 
+  #parses sql string and returns date month as number
   def month_parse(date)
     d =  Date.parse(date).month
     return d.to_s
+  end
+
+  #parses sql string and returns date month as name
+  def month_name_parse(date)
+    d = Date.parse(date).month
+    return Date::MONTHNAMES[d]
   end
 
 
