@@ -1,5 +1,6 @@
 require 'date'
 require 'time'
+
 require_relative('../db/sql_runner')
 class Transaction
 
@@ -95,9 +96,15 @@ class Transaction
     return values.reduce(0){|sum, n| sum + n}
   end
 
+  #parses sql string and converts into uk date format
   def flip_date(date)
     d = Date.parse(date)
     return d.strftime('%d/%m/%y').to_s
+  end
+
+  def month_parse(date)
+    d =  Date.parse(date).month
+    return d.to_s
   end
 
 
