@@ -203,6 +203,14 @@ tr:hover {
   font-size: 1.2em;
 }
 
+.transaction-links {
+  padding-left: 30px;
+}
+
+#nav-icon{
+  padding-left: 5px;
+}
+
 #head-title{
   font-family: 'Lobster', cursive;
   font-size: 4em;
