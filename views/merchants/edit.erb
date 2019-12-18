@@ -1,13 +1,14 @@
-<h1>Edit<%= @merchant.name %></h1>
-<form action="/merchants/<%=@merchant.id%>" method="POST">
-  <label for="merchant-name">New Name:</label>
-  <input type="text" name="name" id="merchant-name">
 
-  <label for="merchant-availability">Availability:</label>
-  <select name="active" id="merchant-availability">
-    <option value="true">Available</option>
-    <option value="false">Unavailable</option>
-  </select>
+  <h1 id="edit-merchant-title">Edit <%= @merchant.name %></h1>
+  <form class="spending-input" action="/merchants/<%=@merchant.id%>" method="POST">
+    <label for="merchant-name">New Name:</label>
+    <input type="text" name="name" id="merchant-name">
 
-  <input type="submit" value="Update">
-</form>
+    <label for="merchant-availability">Availability:</label>
+    <select name="active" id="merchant-availability">
+      <option value="true">Available</option>
+      <option value="false">Unavailable</option>
+    </select>
+
+    <button type="submit">Update</button>
+  </form>

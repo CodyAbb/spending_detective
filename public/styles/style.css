@@ -207,6 +207,33 @@ tr:hover {
   padding-left: 30px;
 }
 
+.spending-input{
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.spending-input label{
+  margin: 5px 10px 5px 0;
+}
+
+.spending-input button{
+  background-color: #555;
+  border: 1px solid white;
+  color: white;
+  margin-left: 5px;
+  padding: 1em 1.5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.spending-input button:hover {
+  background-color: white;
+  color: #555;
+  border: 1px solid #555;
+}
+
 #nav-icon{
   padding-left: 5px;
 }
@@ -214,4 +241,12 @@ tr:hover {
 #head-title{
   font-family: 'Lobster', cursive;
   font-size: 4em;
+}
+
+#edit-merchant-title{
+  margin-left: 30px;
+}
+
+#edit-tag-title{
+  margin-left: 30px;
 }

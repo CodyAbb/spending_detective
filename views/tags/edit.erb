@@ -1,6 +1,6 @@
-<h1>Edit <%= @tag.type%></h1>
-<form action="/tags/<%= @tag.id %>" method="POST">
+<h1 id="edit-tag-title">Edit <%= @tag.type%></h1>
+<form class="spending-input" action="/tags/<%= @tag.id %>" method="POST">
   <label for="tag-type-update">New Type:</label>
   <input type="text" name="type" id="tag-type-update">
-  <input type="submit" value="Update">
+  <button type="submit">Update</button>
 </form>

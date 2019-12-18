@@ -1,14 +1,17 @@
-<form class="add-input" action="/merchants" method="POST">
-  <label for="merchant-name">Merchant Name:</label>
-  <input type="text" name="name" id="merchant-name" placeholder="Enter Here">
 
-  <label for="merchant-availability">Currently Available: </label>
-  <select name="active" id="merchant-availability">
-    <option value="true">Available</option>
-    <option value="false">Currently Unavailable</option>
-  </select>
-  <input type="submit" value="Add Merchant">
-</form>
+  <form class="spending-input" action="/merchants" method="POST">
+    <label for="merchant-name">Merchant Name:</label>
+    <input type="text" name="name" id="merchant-name" placeholder="Enter Here">
+
+    <label for="merchant-availability">Currently Available: </label>
+    <select name="active" id="merchant-availability">
+      <option value="true">Available</option>
+      <option value="false">Currently Unavailable</option>
+    </select>
+    <button type="submit">Add Merchant</button>
+  </form>
+
+
 
 <table>
   <tr>
