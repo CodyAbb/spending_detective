@@ -5,7 +5,32 @@ body{
 
 nav{
   width: 100vw;
-  height: 45px;
+  height: 60px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f3f3f3;
+}
+
+nav li {
+  display: inline;
+}
+
+nav li a {
+  display: block;
+  width: 60px;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #AFAFAF;
 }
 
 footer{
@@ -22,30 +47,7 @@ footer a {
   color: black;
 }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #f3f3f3;
-}
 
-nav li {
-  float: left;
-  display: inline;
-}
-
-nav li a {
-  /* display: block; */
-  color: #666;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-nav li a:hover {
-  background-color: #AFAFAF;
-}
 
 table {
   width: 60%;

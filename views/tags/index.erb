@@ -4,11 +4,15 @@
    <input type="submit"value="Add Tag">
 </form>
 
-<ul>
+<table>
+  <tr>
+    <th>Spending Tag</th>
+    <th></th>
+  </tr>
   <% for tag in @tags %>
-  <li>
-    <%= tag.type %>
-    <a href="/tags/<%=tag.id%>/edit">Edit</a>
-  </li>
-  <% end %>
-</ul>
+  <tr>
+    <td><%=tag.type%></td>
+    <td><a href="/tags/<%=tag.id%>/edit">Edit</a></td>
+  </tr>
+  <%end%>
+</table>
