@@ -27,7 +27,7 @@ nav li {
 nav li a {
   display: inline-block;
   width: 15vw;
-  color: #666;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -270,6 +270,32 @@ tr:hover {
   background-color: white;
   color: #555;
   border: 1px solid #555;
+}
+
+.selection-view {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.selection-view label {
+  padding-right: 20px;
+}
+
+.selection-view button{
+  background-color: #F69111;
+  margin-left: 5px;
+  border: 1px solid white;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+}
+
+.selection-view button:hover{
+  background-color: white;
+  color: #F69111;
+  border: 1px solid #F69111;
 }
 
 #nav-icon{
