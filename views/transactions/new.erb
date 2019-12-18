@@ -1,6 +1,6 @@
 <h2 class="transaction-add-header">Enter Transaction Details</h2>
 
-<form action="/transactions" method="POST">
+<form action="/transactions" method="POST" class="transaction-container">
   <label for="transaction-date">Enter the Transaction Date</label>
   <input type="date" name="transaction_date" id="transaction-date">
 
@@ -21,10 +21,10 @@
     <% end %>
   </select>
 
-  <label for="description-text">Description:</label>
+  <label id="transaction-description-form" for="description-text">Description:</label>
   <input type="text" name="description" id="description-text" placeholder="Simple Description">
 
-  <input type="submit" value="Add Transaction">
+  <button type="submit">Add</button>
 
 
 </form>
