@@ -35,7 +35,7 @@ class Transaction
             transaction_date, amount, description, tag_id, merchant_id
           ) = (
           $1, $2, $3, $4, $5
-          ) WHERE id = $7"
+          ) WHERE id = $6"
     values = [@transaction_date, @amount, @description, @tag_id, @merchant_id, @id]
     SqlRunner.run(sql, values)
   end

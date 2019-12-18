@@ -1,15 +1,14 @@
   <p class="add-transaction-button"><a href="/transactions/new">Add Transaction</a></p>
 
-  <br>
-  <p>Total Transaction Value: £<%= sprintf('%.2f', @total_transaction_value) %></p>
-  <br>
-
   <div class="transaction-links">
     <p>View by:</p>
     <a href="/transactions/dates">Date</a>
     <a href="/transactions/merchants">Merchant</a>
     <a href="/transactions/tags">Tags</a>
   </div>
+
+  <br>
+  <p class="transaction-total">Total Transaction Value: £<%= sprintf('%.2f', @total_transaction_value) %></p>
 
   <table>
     <tr>
