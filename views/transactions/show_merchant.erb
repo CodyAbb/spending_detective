@@ -1,11 +1,11 @@
-<form class="" action="/transactions/merchants/" method="post">
+<form class="selection-view" action="/transactions/merchants/" method="post">
   <label for="merchant-select">Select Merchant:</label>
   <select name="merchant_term" id="merchant-select">
       <%for merchant in @merchants %>
       <option value="<%= merchant.id%>"> <%= merchant.name %> </option>
       <% end %>
-    </select>
-  <input type="submit" value="View">
+  </select>
+  <button type="submit">View</button>
 </form>
 
 

@@ -1,11 +1,11 @@
-<form class="" action="/transactions/tags/" method="post">
+<form class="selection-view" action="/transactions/tags/" method="post">
   <label for="tag-select">Select Tag:</label>
   <select name="tag_term" id="tag-select">
     <%for tag in @tags %>
       <option value="<%= tag.id%>"> <%= tag.type %> </option>
     <% end %>
     </select>
-  <input type="submit" value="View">
+    <button type="submit">View</button>
 </form>
 
 
