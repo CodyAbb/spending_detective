@@ -1,6 +1,6 @@
-<h1>Edit</h1>
+<h1 class="transaction-add-header">Edit</h1>
 
-<form action="/transactions/<%=@transaction.id%>" method="POST">
+<form class="transaction-container" action="/transactions/<%=@transaction.id%>" method="POST">
   <label for="transaction-date">Enter the Transaction Date</label>
   <input type="date" name="transaction_date" id="transaction-date">
 
@@ -24,7 +24,8 @@
   <label for="description-text">Description:</label>
   <input type="text" name="description" id="description-text" placeholder="Simple Description">
 
-  <input type="submit" value="Add Transaction">
-
-
+  <button type="submit">Add</button>
 </form>
+
+<br>
+<p class="back-button"><a href="/transactions"> Back</a></p>
